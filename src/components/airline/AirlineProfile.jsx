@@ -65,7 +65,7 @@ function AirlineProfile() {
                                     <input className="form-control" onChange={(e) => setForm({ ...form, [f]: e.target.value })} />
                                 </div>
                             ))}
-                            <div className="col-12"><button className="btn btn-primary mt-2">Save changes</button></div>
+                            <div className="col-12"><button type="submit" className="btn btn-primary mt-2">Save changes</button></div>
                         </form>
                     </div>
                 </div>

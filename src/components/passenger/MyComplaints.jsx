@@ -54,20 +54,20 @@ function MyComplaints() {
                     <div className="card-body">
                         <Alert msg={errMsg} onClose={() => setErrMsg("")} />
                         <form onSubmit={(e) => add(e)}>
-                            <label className="form-label small">Booking (optional)</label>
-                            <select className="form-select mb-2" value={bookingId} onChange={(e) => setBookingId(e.target.value)}>
+                            <label htmlFor="complaint-booking" className="form-label small">Booking (optional)</label>
+                            <select id="complaint-booking" className="form-select mb-2" value={bookingId} onChange={(e) => setBookingId(e.target.value)}>
                                 <option value="">Not related to a booking</option>
                                 {bookings.map(b => <option key={b.bookingId} value={b.bookingId}>{b.pnr} · {b.journeys[0]?.source} → {b.journeys[0]?.destination}</option>)}
                             </select>
-                            <label className="form-label small">Category</label>
-                            <select className="form-select mb-2" value={category} onChange={(e) => setCategory(e.target.value)}>
+                            <label htmlFor="complaint-category" className="form-label small">Category</label>
+                            <select id="complaint-category" className="form-select mb-2" value={category} onChange={(e) => setCategory(e.target.value)}>
                                 {CATEGORIES.map(c => <option key={c} value={c}>{label(c)}</option>)}
                             </select>
-                            <label className="form-label small">Subject</label>
-                            <input className="form-control mb-2" required value={subject} onChange={(e) => setSubject(e.target.value)} />
-                            <label className="form-label small">Description</label>
-                            <textarea className="form-control mb-3" rows={3} required value={description} onChange={(e) => setDescription(e.target.value)} />
-                            <button className="btn btn-primary w-100">Submit</button>
+                            <label htmlFor="complaint-subject" className="form-label small">Subject</label>
+                            <input id="complaint-subject" className="form-control mb-2" required value={subject} onChange={(e) => setSubject(e.target.value)} />
+                            <label htmlFor="complaint-description" className="form-label small">Description</label>
+                            <textarea id="complaint-description" className="form-control mb-3" rows={3} required value={description} onChange={(e) => setDescription(e.target.value)} />
+                            <button type="submit" className="btn btn-primary w-100">Submit</button>
                         </form>
                     </div>
                 </div>

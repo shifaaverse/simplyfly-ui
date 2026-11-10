@@ -49,33 +49,33 @@ function SignUp() {
                                 <form onSubmit={(e) => processSignup(e)}>
                                     <div className="row g-3">
                                         <div className="col-md-6">
-                                            <label className="form-label small fw-semibold text-secondary">Full Name</label>
-                                            <input type="text" className="form-control" required
+                                            <label htmlFor="signup-full-name" className="form-label small fw-semibold text-secondary">Full Name</label>
+                                            <input id="signup-full-name" type="text" className="form-control" required
                                                 onChange={(e) => setName(e.target.value)} />
                                         </div>
                                         <div className="col-md-6">
-                                            <label className="form-label small fw-semibold text-secondary">Email</label>
-                                            <input type="email" className="form-control" required
+                                            <label htmlFor="signup-email" className="form-label small fw-semibold text-secondary">Email</label>
+                                            <input id="signup-email" type="email" className="form-control" required
                                                 onChange={(e) => setEmail(e.target.value)} />
                                         </div>
                                         <div className="col-md-6">
-                                            <label className="form-label small fw-semibold text-secondary">Mobile Number</label>
-                                            <input type="text" className="form-control" required maxLength={10} pattern="[0-9]{10}"
+                                            <label htmlFor="signup-mobile-number" className="form-label small fw-semibold text-secondary">Mobile Number</label>
+                                            <input id="signup-mobile-number" type="text" className="form-control" required maxLength={10} pattern="[0-9]{10}"
                                                 onChange={(e) => setContact(e.target.value)} />
                                         </div>
                                         <div className="col-md-6">
-                                            <label className="form-label small fw-semibold text-secondary">Date of Birth</label>
-                                            <input type="date" className="form-control" required
+                                            <label htmlFor="signup-date-of-birth" className="form-label small fw-semibold text-secondary">Date of Birth</label>
+                                            <input id="signup-date-of-birth" type="date" className="form-control" required
                                                 onChange={(e) => setDateOfBirth(e.target.value)} />
                                         </div>
                                         <div className="col-md-6">
-                                            <label className="form-label small fw-semibold text-secondary">Username</label>
-                                            <input type="text" className="form-control" required
+                                            <label htmlFor="signup-username" className="form-label small fw-semibold text-secondary">Username</label>
+                                            <input id="signup-username" type="text" className="form-control" required
                                                 onChange={(e) => setUsername(e.target.value)} />
                                         </div>
                                         <div className="col-md-6">
-                                            <label className="form-label small fw-semibold text-secondary">Password</label>
-                                            <input type="password" className="form-control" placeholder="••••••••" required
+                                            <label htmlFor="signup-password" className="form-label small fw-semibold text-secondary">Password</label>
+                                            <input id="signup-password" type="password" className="form-control" placeholder="••••••••" required
                                                 onChange={(e) => setPassword(e.target.value)} />
                                         </div>
                                     </div>

@@ -133,7 +133,7 @@ function FlightResults({ onContinue, onModify }) {
     const filtersApplied = filters.airline !== '' || filters.fromTime !== '' || filters.toTime !== '' || filters.maxPrice !== ''
 
     // Airlines for the airline filter (departure + return)
-    const airlines = [...new Set([...(onwardResult?.airlines ?? []), ...(returnResult?.airlines ?? [])])].sort()
+    const airlines = [...new Set([...(onwardResult?.airlines ?? []), ...(returnResult?.airlines ?? [])])].sort((a, b) => a.localeCompare(b))
 
     // Ask the backend for a page of flights
     const loadFlights = async (journeyType, newFilters, page) => {
@@ -150,14 +150,14 @@ function FlightResults({ onContinue, onModify }) {
     const applyFilters = (newFilters) => {
         setFilters(newFilters)
         setPages({ DEPARTURE: 0, RETURN: 0 })
-        loadFlights('DEPARTURE', newFilters, 0)
+        void loadFlights('DEPARTURE', newFilters, 0)
         if (isRound)
-            loadFlights('RETURN', newFilters, 0)
+            void loadFlights('RETURN', newFilters, 0)
     }
 
     const changePage = (journeyType, page) => {
         setPages({ ...pages, [journeyType]: page })
-        loadFlights(journeyType, filters, page)
+        void loadFlights(journeyType, filters, page)
     }
 
     const pickSlot = (slot) => {
@@ -231,7 +231,7 @@ function FlightResults({ onContinue, onModify }) {
                                 <span className="input-group-text">₹</span>
                                 <input type="number" min="1" className="form-control" placeholder="e.g. 5000"
                                     value={priceInput} onChange={(e) => setPriceInput(e.target.value)} />
-                                <button className="btn btn-outline-primary">Apply</button>
+                                <button type="submit" className="btn btn-outline-primary">Apply</button>
                             </form>
                             {filters.maxPrice !== '' &&
                                 <div className="small text-muted mt-1">Fares up to {formatMoney(filters.maxPrice)}</div>}

@@ -99,8 +99,8 @@ function FlightSearch({ onSearched, onBack }) {
                     <Alert msg={errMsg} onClose={() => setErrMsg("")} />
                     <div className="row g-3 align-items-end">
                         <div className="col-md-3">
-                            <label className="form-label small">From</label>
-                            <select className="form-select form-select-lg" required value={source} onChange={(e) => setSource(e.target.value)}>
+                            <label htmlFor="search-from" className="form-label small">From</label>
+                            <select id="search-from" className="form-select form-select-lg" required value={source} onChange={(e) => setSource(e.target.value)}>
                                 <option value="">Select city</option>
                                 {airports.map(a => <option key={a.id} value={a.code}>{a.city} ({a.code})</option>)}
                             </select>
@@ -111,20 +111,20 @@ function FlightSearch({ onSearched, onBack }) {
                             </button>
                         </div>
                         <div className="col-md-3">
-                            <label className="form-label small">To</label>
-                            <select className="form-select form-select-lg" required value={destination} onChange={(e) => setDestination(e.target.value)}>
+                            <label htmlFor="search-to" className="form-label small">To</label>
+                            <select id="search-to" className="form-select form-select-lg" required value={destination} onChange={(e) => setDestination(e.target.value)}>
                                 <option value="">Select city</option>
                                 {airports.map(a => <option key={a.id} value={a.code}>{a.city} ({a.code})</option>)}
                             </select>
                         </div>
                         <div className="col-md">
-                            <label className="form-label small">Departure</label>
-                            <input type="date" className="form-control form-control-lg" required min={today()} value={departureDate}
+                            <label htmlFor="search-departure" className="form-label small">Departure</label>
+                            <input id="search-departure" type="date" className="form-control form-control-lg" required min={today()} value={departureDate}
                                 onChange={(e) => setDepartureDate(e.target.value)} />
                         </div>
                         <div className="col-md">
-                            <label className="form-label small">Return</label>
-                            <input type="date" className="form-control form-control-lg" disabled={tripType === 'ONE_WAY'}
+                            <label htmlFor="search-return" className="form-label small">Return</label>
+                            <input id="search-return" type="date" className="form-control form-control-lg" disabled={tripType === 'ONE_WAY'}
                                 required={tripType === 'ROUND_TRIP'} min={departureDate} value={returnDate}
                                 onChange={(e) => setReturnDate(e.target.value)} />
                         </div>
@@ -138,15 +138,15 @@ function FlightSearch({ onSearched, onBack }) {
                             </div>
                         </div>
                         <div className="col-md-3">
-                            <label className="form-label small">Travel Class</label>
-                            <select className="form-select" value={seatClass} onChange={(e) => setSeatClass(e.target.value)}>
+                            <label htmlFor="search-travel-class" className="form-label small">Travel Class</label>
+                            <select id="search-travel-class" className="form-select" value={seatClass} onChange={(e) => setSeatClass(e.target.value)}>
                                 <option value="ECONOMY">Economy</option>
                                 <option value="PREMIUM_ECONOMY">Premium Economy</option>
                                 <option value="BUSINESS">Business</option>
                             </select>
                         </div>
                         <div className="col-md-3 d-grid">
-                            <button className="btn btn-primary btn-lg fw-semibold" disabled={loading}>
+                            <button type="submit" className="btn btn-primary btn-lg fw-semibold" disabled={loading}>
                                 {loading ? 'Searching...' : 'Search Flights'}
                             </button>
                         </div>

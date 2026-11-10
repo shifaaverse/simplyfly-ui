@@ -4,7 +4,7 @@ import { formatMoney } from "../../utils/format"
 function SeatMap({ seats, selected, maxSelect, onChange }) {
     const rows = {}
     seats.forEach(s => {
-        const row = parseInt(s.seatNumber)
+        const row = Number.parseInt(s.seatNumber, 10)
         rows[row] = rows[row] || []
         rows[row].push(s)
     })

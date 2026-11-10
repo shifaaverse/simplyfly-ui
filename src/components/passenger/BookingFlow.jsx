@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { createBooking, createPaymentOrder, getSeats, makePayment, resetBooking, verifyPayment } from "../../store/actions/PassengerAction"
@@ -235,7 +234,7 @@ function BookingFlow({ back, goToTrips }) {
                             <div className="d-flex justify-content-between fs-5 mb-3">
                                 <span>Total</span><b>{formatMoney(booking.totalAmount)}</b>
                             </div>
-                            <label className="form-label small">Payment method</label>
+                            <div className="form-label small">Payment method</div>
                             {['UPI', 'CARD', 'NET_BANKING'].map(m => (
                                 <div className="form-check" key={m}>
                                     <input className="form-check-input" type="radio" id={m} checked={method === m} onChange={() => setMethod(m)} />
@@ -297,14 +296,14 @@ function BookingFlow({ back, goToTrips }) {
                                                 onChange={(e) => changeTraveller(i, 'govtIdNumber', e.target.value.toUpperCase())} />
                                         </div>
                                         <div className="col-md-6">
-                                            <label className="form-label small mb-0">Meal</label>
-                                            <select className="form-select" value={t.mealOption} onChange={(e) => changeTraveller(i, 'mealOption', e.target.value)}>
+                                            <label htmlFor={`meal-${t.number}`} className="form-label small mb-0">Meal</label>
+                                            <select id={`meal-${t.number}`} className="form-select" value={t.mealOption} onChange={(e) => changeTraveller(i, 'mealOption', e.target.value)}>
                                                 {MEALS.map(m => <option key={m.value} value={m.value}>{m.text}{m.price > 0 ? ` (+₹${m.price})` : ''}</option>)}
                                             </select>
                                         </div>
                                         <div className="col-md-6">
-                                            <label className="form-label small mb-0">Extra baggage (kg, ₹400/kg)</label>
-                                            <input type="number" min="0" max={MAX_EXTRA_BAGGAGE} className="form-control" value={t.extraBaggageKg}
+                                            <label htmlFor={`baggage-${t.number}`} className="form-label small mb-0">Extra baggage (kg, ₹400/kg)</label>
+                                            <input id={`baggage-${t.number}`} type="number" min="0" max={MAX_EXTRA_BAGGAGE} className="form-control" value={t.extraBaggageKg}
                                                 onChange={(e) => changeTraveller(i, 'extraBaggageKg', e.target.value)} />
                                         </div>
                                     </>}
@@ -322,7 +321,7 @@ function BookingFlow({ back, goToTrips }) {
             </div>
             <div className="sf-sticky-bar">
                 <span className="text-muted small">Fare is calculated by the server on the next step.</span>
-                <button className="btn btn-primary" disabled={busy}>{busy ? 'Holding seats...' : 'Review fare'} <i className="bi bi-arrow-right"></i></button>
+                <button type="submit" className="btn btn-primary" disabled={busy}>{busy ? 'Holding seats...' : 'Review fare'} <i className="bi bi-arrow-right"></i></button>
             </div>
         </form>
     )

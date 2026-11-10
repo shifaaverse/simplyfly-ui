@@ -33,13 +33,13 @@ function FlightEdit({ flight, onSave, onCancel }) {
                             </div>
                         ))}
                         <div className="col-md-6">
-                            <label className="form-label small">Baggage info</label>
-                            <input className="form-control" value={values.baggageInfo}
+                            <label htmlFor="edit-flight-baggage-info" className="form-label small">Baggage info</label>
+                            <input id="edit-flight-baggage-info" className="form-control" value={values.baggageInfo}
                                 onChange={(e) => change('baggageInfo', e.target.value)} />
                         </div>
                     </div>
                     <div className="mt-3 d-flex gap-2">
-                        <button className="btn btn-primary btn-sm">Save</button>
+                        <button type="submit" className="btn btn-primary btn-sm">Save</button>
                         <button type="button" className="btn btn-outline-secondary btn-sm" onClick={() => onCancel()}>Cancel</button>
                     </div>
                 </form>

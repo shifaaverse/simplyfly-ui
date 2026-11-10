@@ -53,21 +53,21 @@ function AdminAirports() {
             <Alert msg={errMsg} onClose={() => setErrMsg("")} />
             <div className="card sf-card mb-3">
                 <div className="card-body">
-                    <form className="row g-2 align-items-end" onSubmit={(e) => { e.preventDefault(); add([{ code, name, city }]) }}>
+                    <form className="row g-2 align-items-end" onSubmit={(e) => { e.preventDefault(); void add([{ code, name, city }]) }}>
                         <div className="col-md-2">
-                            <label className="form-label small">Code</label>
-                            <input className="form-control" maxLength={3} required value={code} onChange={(e) => setCode(e.target.value)} />
+                            <label htmlFor="airport-code" className="form-label small">Code</label>
+                            <input id="airport-code" className="form-control" maxLength={3} required value={code} onChange={(e) => setCode(e.target.value)} />
                         </div>
                         <div className="col-md-5">
-                            <label className="form-label small">Airport Name</label>
-                            <input className="form-control" required value={name} onChange={(e) => setName(e.target.value)} />
+                            <label htmlFor="airport-airport-name" className="form-label small">Airport Name</label>
+                            <input id="airport-airport-name" className="form-control" required value={name} onChange={(e) => setName(e.target.value)} />
                         </div>
                         <div className="col-md-3">
-                            <label className="form-label small">City</label>
-                            <input className="form-control" required value={city} onChange={(e) => setCity(e.target.value)} />
+                            <label htmlFor="airport-city" className="form-label small">City</label>
+                            <input id="airport-city" className="form-control" required value={city} onChange={(e) => setCity(e.target.value)} />
                         </div>
                         <div className="col-md-2 d-grid">
-                            <button className="btn btn-primary">Add Airport</button>
+                            <button type="submit" className="btn btn-primary">Add Airport</button>
                         </div>
                     </form>
                     {missingSamples.length > 0 &&

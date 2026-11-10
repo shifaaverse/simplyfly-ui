@@ -35,7 +35,7 @@ function useAuthGuard(expectedRole) {
             }
         }
 
-        getUserDetails()
+        void getUserDetails()
     }, [params, expectedRole, navigate, userDetailsUrl])
 
     const logout = () => {

@@ -51,14 +51,14 @@ function PassengerProfile() {
                         <Alert msg={msg} type="success" onClose={() => setMsg("")} />
                         <form className="row g-2" onSubmit={(e) => save(e)}>
                             <div className="col-md-6">
-                                <label className="form-label small">Name</label>
-                                <input className="form-control" onChange={(e) => setName(e.target.value)} />
+                                <label htmlFor="profile-name" className="form-label small">Name</label>
+                                <input id="profile-name" className="form-control" onChange={(e) => setName(e.target.value)} />
                             </div>
                             <div className="col-md-6">
-                                <label className="form-label small">Mobile</label>
-                                <input className="form-control" maxLength={10} onChange={(e) => setContact(e.target.value)} />
+                                <label htmlFor="profile-mobile" className="form-label small">Mobile</label>
+                                <input id="profile-mobile" className="form-control" maxLength={10} onChange={(e) => setContact(e.target.value)} />
                             </div>
-                            <div className="col-12"><button className="btn btn-primary mt-2">Save</button></div>
+                            <div className="col-12"><button type="submit" className="btn btn-primary mt-2">Save</button></div>
                         </form>
                     </div>
                 </div>

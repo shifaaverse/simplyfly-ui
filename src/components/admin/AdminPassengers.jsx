@@ -49,7 +49,7 @@ function AdminPassengers() {
                     <form className="d-flex gap-2" onSubmit={(e) => onSearch(e)}>
                         <input className="form-control form-control-sm" placeholder="Search name / email / username"
                             onChange={(e) => setSearch(e.target.value)} />
-                        <button className="btn btn-sm btn-primary"><i className="bi bi-search"></i></button>
+                        <button type="submit" className="btn btn-sm btn-primary"><i className="bi bi-search"></i></button>
                     </form>
                 </div>
             </div>

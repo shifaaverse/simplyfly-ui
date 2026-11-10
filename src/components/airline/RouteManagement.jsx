@@ -59,21 +59,21 @@ function RouteManagement() {
                 <div className="card-body">
                     <form className="row g-2 align-items-end" onSubmit={(e) => add(e)}>
                         <div className="col-md-5">
-                            <label className="form-label small">Source Airport</label>
-                            <select className="form-select" required value={sourceAirportId} onChange={(e) => setSourceAirportId(e.target.value)}>
+                            <label htmlFor="route-source-airport" className="form-label small">Source Airport</label>
+                            <select id="route-source-airport" className="form-select" required value={sourceAirportId} onChange={(e) => setSourceAirportId(e.target.value)}>
                                 <option value="">Select</option>
                                 {airports.map(a => <option key={a.id} value={a.id}>{a.city} ({a.code})</option>)}
                             </select>
                         </div>
                         <div className="col-md-5">
-                            <label className="form-label small">Destination Airport</label>
-                            <select className="form-select" required value={destinationAirportId} onChange={(e) => setDestinationAirportId(e.target.value)}>
+                            <label htmlFor="route-destination-airport" className="form-label small">Destination Airport</label>
+                            <select id="route-destination-airport" className="form-select" required value={destinationAirportId} onChange={(e) => setDestinationAirportId(e.target.value)}>
                                 <option value="">Select</option>
                                 {airports.map(a => <option key={a.id} value={a.id}>{a.city} ({a.code})</option>)}
                             </select>
                         </div>
                         <div className="col-md-2 d-grid">
-                            <button className="btn btn-primary">Add Route</button>
+                            <button type="submit" className="btn btn-primary">Add Route</button>
                         </div>
                     </form>
                 </div>

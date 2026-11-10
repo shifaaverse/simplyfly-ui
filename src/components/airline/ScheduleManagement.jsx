@@ -97,8 +97,8 @@ function ScheduleManagement() {
                     <form onSubmit={(e) => add(e)}>
                         <div className="row g-2 align-items-end">
                             <div className="col-md-4">
-                                <label className="form-label small">Flight</label>
-                                <select className="form-select" required value={flightId} onChange={(e) => setFlightId(e.target.value)}>
+                                <label htmlFor="schedule-flight" className="form-label small">Flight</label>
+                                <select id="schedule-flight" className="form-select" required value={flightId} onChange={(e) => setFlightId(e.target.value)}>
                                     <option value="">Select flight</option>
                                     {flights.map(f => <option key={f.flightId} value={f.flightId}>
                                         {f.flightNumber} {f.source} → {f.destination} ({formatTime(f.departureTime)})
@@ -106,17 +106,17 @@ function ScheduleManagement() {
                                 </select>
                             </div>
                             <div className="col-md-3">
-                                <label className="form-label small">Start date</label>
-                                <input type="date" className="form-control" required min={today()} value={startDate}
+                                <label htmlFor="schedule-start-date" className="form-label small">Start date</label>
+                                <input id="schedule-start-date" type="date" className="form-control" required min={today()} value={startDate}
                                     onChange={(e) => setStartDate(e.target.value)} />
                             </div>
                             <div className="col-md-3">
-                                <label className="form-label small">End date (max 60 days)</label>
-                                <input type="date" className="form-control" required min={startDate} value={endDate}
+                                <label htmlFor="schedule-end-date" className="form-label small">End date (max 60 days)</label>
+                                <input id="schedule-end-date" type="date" className="form-control" required min={startDate} value={endDate}
                                     onChange={(e) => setEndDate(e.target.value)} />
                             </div>
                             <div className="col-md-2 d-grid">
-                                <button className="btn btn-primary">Create Schedule</button>
+                                <button type="submit" className="btn btn-primary">Create Schedule</button>
                             </div>
                         </div>
                         <div className="mt-3 d-flex flex-wrap align-items-center gap-3">
@@ -141,8 +141,8 @@ function ScheduleManagement() {
                     <SearchBox value={search} onChange={(v) => { setSearch(v); setPage(0) }} placeholder="Search flight / city" />
                     <FilterSelect value={statusFilter} onChange={(v) => { setStatusFilter(v); setPage(0) }}
                         allText="All status" options={STATUSES} />
-                    <label className="small text-muted mb-0 ms-2">From date</label>
-                    <input type="date" className="form-control form-control-sm" style={{ width: 160 }}
+                    <label htmlFor="schedule-from-date" className="small text-muted mb-0 ms-2">From date</label>
+                    <input id="schedule-from-date" type="date" className="form-control form-control-sm" style={{ width: 160 }}
                         value={fromDate} onChange={(e) => { setFromDate(e.target.value); setPage(0) }} />
                 </div>
             </div>

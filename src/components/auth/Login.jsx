@@ -83,17 +83,17 @@ function Login() {
                                 {/* <!-- Login Form --> */}
                                 <form onSubmit={(e) => processLogin(e)}>
                                     <div className="mb-3">
-                                        <label className="form-label small fw-semibold text-secondary">Username</label>
-                                        <input type="text" className="form-control form-control-lg" required
+                                        <label htmlFor="login-username" className="form-label small fw-semibold text-secondary">Username</label>
+                                        <input id="login-username" type="text" className="form-control form-control-lg" required
                                             onChange={(e) => setUsername(e.target.value)} />
                                     </div>
 
                                     <div className="mb-3">
                                         <div className="d-flex justify-content-between">
-                                            <label className="form-label small fw-semibold text-secondary">Password</label>
+                                            <label htmlFor="login-password" className="form-label small fw-semibold text-secondary">Password</label>
                                             <Link to="/forgot-password" className="small text-decoration-none">Forgot password?</Link>
                                         </div>
-                                        <input type="password" className="form-control form-control-lg" placeholder="••••••••" required
+                                        <input id="login-password" type="password" className="form-control form-control-lg" placeholder="••••••••" required
                                             onChange={(e) => setPassword(e.target.value)} />
                                     </div>
 

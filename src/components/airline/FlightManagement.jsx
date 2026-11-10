@@ -97,26 +97,26 @@ function FlightManagement() {
                     <form onSubmit={(e) => add(e)}>
                         <div className="row g-2">
                             <div className="col-md-3">
-                                <label className="form-label small">Flight Number</label>
-                                <input className="form-control" placeholder="6E-201" required value={flight.flightNumber}
+                                <label htmlFor="flight-flight-number" className="form-label small">Flight Number</label>
+                                <input id="flight-flight-number" className="form-control" placeholder="6E-201" required value={flight.flightNumber}
                                     onChange={(e) => change('flightNumber', e.target.value)} />
                             </div>
                             <div className="col-md-3">
-                                <label className="form-label small">Route</label>
-                                <select className="form-select" required value={flight.routeId} onChange={(e) => change('routeId', e.target.value)}>
+                                <label htmlFor="flight-route" className="form-label small">Route</label>
+                                <select id="flight-route" className="form-select" required value={flight.routeId} onChange={(e) => change('routeId', e.target.value)}>
                                     <option value="">Select route</option>
                                     {routes.filter(r => r.isActive).map(r =>
                                         <option key={r.routeId} value={r.routeId}>{r.sourceCity} → {r.destinationCity}</option>)}
                                 </select>
                             </div>
                             <div className="col-md-3">
-                                <label className="form-label small">Departure Time</label>
-                                <input type="time" className="form-control" required value={flight.departureTime}
+                                <label htmlFor="flight-departure-time" className="form-label small">Departure Time</label>
+                                <input id="flight-departure-time" type="time" className="form-control" required value={flight.departureTime}
                                     onChange={(e) => change('departureTime', e.target.value)} />
                             </div>
                             <div className="col-md-3">
-                                <label className="form-label small">Arrival Time</label>
-                                <input type="time" className="form-control" required value={flight.arrivalTime}
+                                <label htmlFor="flight-arrival-time" className="form-label small">Arrival Time</label>
+                                <input id="flight-arrival-time" type="time" className="form-control" required value={flight.arrivalTime}
                                     onChange={(e) => change('arrivalTime', e.target.value)} />
                             </div>
                         </div>
@@ -136,11 +136,11 @@ function FlightManagement() {
                         </div>
                         <div className="row g-2 mt-1 align-items-end">
                             <div className="col-md-9">
-                                <label className="form-label small">Baggage info</label>
-                                <input className="form-control" value={flight.baggageInfo} onChange={(e) => change('baggageInfo', e.target.value)} />
+                                <label htmlFor="flight-baggage-info" className="form-label small">Baggage info</label>
+                                <input id="flight-baggage-info" className="form-control" value={flight.baggageInfo} onChange={(e) => change('baggageInfo', e.target.value)} />
                             </div>
                             <div className="col-md-3 d-grid">
-                                <button className="btn btn-primary">Create Flight</button>
+                                <button type="submit" className="btn btn-primary">Create Flight</button>
                             </div>
                         </div>
                         <p className="small text-muted mt-2 mb-0">Child fare = 75% of base, Infant = 10% (no seat). 5% tax applied on total.</p>

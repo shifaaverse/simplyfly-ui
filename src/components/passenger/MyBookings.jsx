@@ -104,7 +104,7 @@ function MyBookings() {
                         <div className="d-flex gap-2">
                             <input className="form-control form-control-sm" placeholder="Reason for cancellation" required
                                 value={reason} onChange={(e) => setReason(e.target.value)} />
-                            <button className="btn btn-sm btn-danger text-nowrap">Submit request</button>
+                            <button type="submit" className="btn btn-sm btn-danger text-nowrap">Submit request</button>
                             <button type="button" className="btn btn-sm btn-light" onClick={() => setCancelJourney(null)}>Close</button>
                         </div>
                     </form>

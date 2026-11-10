@@ -54,7 +54,7 @@ function ForgotPassword() {
                                     <input className="form-control form-control-lg mb-3" placeholder="Username" required
                                         value={username} onChange={(e) => setUsername(e.target.value)} />
                                     <div className="d-grid">
-                                        <button className="btn btn-primary btn-lg">Get OTP</button>
+                                        <button type="submit" className="btn btn-primary btn-lg">Get OTP</button>
                                     </div>
                                 </form>
                             )}
@@ -70,7 +70,7 @@ function ForgotPassword() {
                                     <input type="password" className="form-control form-control-lg mb-3" placeholder="New password (min 6 characters)"
                                         required minLength={6} value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
                                     <div className="d-grid">
-                                        <button className="btn btn-primary btn-lg">Reset password</button>
+                                        <button type="submit" className="btn btn-primary btn-lg">Reset password</button>
                                     </div>
                                 </form>
                             )}

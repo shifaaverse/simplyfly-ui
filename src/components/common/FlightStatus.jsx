@@ -34,15 +34,15 @@ function FlightStatus() {
                     <h1 className="h4 fw-bold mb-3"><i className="bi bi-broadcast me-2 text-primary"></i>Flight status</h1>
                     <form onSubmit={(e) => check(e)} className="row g-2 align-items-end">
                         <div className="col-sm-5">
-                            <label className="form-label small">Flight number</label>
-                            <input className="form-control" placeholder="6E-201" required value={flightNumber}
+                            <label htmlFor="status-flight-number" className="form-label small">Flight number</label>
+                            <input id="status-flight-number" className="form-control" placeholder="6E-201" required value={flightNumber}
                                 onChange={(e) => setFlightNumber(e.target.value)} />
                         </div>
                         <div className="col-sm-4">
-                            <label className="form-label small">Date</label>
-                            <input type="date" className="form-control" required value={date} onChange={(e) => setDate(e.target.value)} />
+                            <label htmlFor="status-date" className="form-label small">Date</label>
+                            <input id="status-date" type="date" className="form-control" required value={date} onChange={(e) => setDate(e.target.value)} />
                         </div>
-                        <div className="col-sm-3 d-grid"><button className="btn btn-primary">Check</button></div>
+                        <div className="col-sm-3 d-grid"><button type="submit" className="btn btn-primary">Check</button></div>
                     </form>
                     <div className="mt-3"><Alert msg={errMsg} onClose={() => setErrMsg("")} /></div>
 

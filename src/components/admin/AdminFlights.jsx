@@ -35,8 +35,8 @@ function AdminFlights() {
                     <SearchBox value={search} onChange={(v) => { setSearch(v); setPage(0) }} placeholder="Search airline / flight / city" />
                     <FilterSelect value={statusFilter} onChange={(v) => { setStatusFilter(v); setPage(0) }}
                         allText="All status" options={FLIGHT_STATUSES} />
-                    <label className="small text-muted mb-0 ms-2">From date</label>
-                    <input type="date" className="form-control form-control-sm" style={{ width: 160 }}
+                    <label htmlFor="admin-flights-from-date" className="small text-muted mb-0 ms-2">From date</label>
+                    <input id="admin-flights-from-date" type="date" className="form-control form-control-sm" style={{ width: 160 }}
                         value={fromDate} onChange={(e) => { setFromDate(e.target.value); setPage(0) }} />
                 </div>
             </div>
