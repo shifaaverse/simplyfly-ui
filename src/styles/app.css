@@ -1,0 +1,242 @@
+/* SimplyFly custom styles (on top of Bootstrap 5) */
+:root {
+  --sf-primary: #0b5ed7;
+  --sf-navy: #0a2540;
+  --sf-sky: #e8f1ff;
+  --sf-bg: #f4f7fb;
+}
+
+body {
+  background: var(--sf-bg);
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ---------- auth pages ---------- */
+.sf-auth-bg {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  background: linear-gradient(135deg, #0a2540 0%, #0b5ed7 60%, #4ea8ff 100%);
+}
+.brand-icon {
+  width: 56px;
+  height: 56px;
+  background-color: #f0f4ff;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-control:focus, .form-select:focus {
+  border-color: #86b7fe;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.1);
+}
+
+/* ---------- navbar + tabs ---------- */
+.sf-navbar { background: var(--sf-navy); }
+.sf-role-pill {
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, .15);
+  padding: .2rem .6rem;
+  border-radius: 999px;
+}
+.sf-tabs {
+  background: #fff;
+  border-bottom: 1px solid #e3e8ef;
+  overflow-x: auto;
+}
+.sf-tabs .nav { flex-wrap: nowrap; }
+.sf-tabs .nav-link {
+  border: 0;
+  background: none;
+  color: #5b6b7f;
+  padding: .85rem 1rem;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+  font-weight: 500;
+}
+.sf-tabs .nav-link.active {
+  color: var(--sf-primary);
+  border-bottom-color: var(--sf-primary);
+}
+
+/* ---------- cards / tables ---------- */
+.sf-section-title {
+  font-weight: 700;
+  color: var(--sf-navy);
+  margin-bottom: 1rem;
+  font-size: 1.15rem;
+}
+.sf-subhead {
+  font-size: .8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: #6c7a8c;
+  margin-bottom: .4rem;
+}
+.sf-card {
+  border: 1px solid #e3e8ef;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, .04);
+  overflow: hidden;
+}
+.sf-card .table thead th {
+  background: #f8fafc;
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  color: #6c7a8c;
+  white-space: nowrap;
+}
+.sf-stat { border: 1px solid #e3e8ef; border-radius: 12px; }
+.sf-stat-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+.sf-stat-value { font-size: 1.4rem; font-weight: 700; color: var(--sf-navy); line-height: 1.1; }
+.sf-stat-label { font-size: .8rem; color: #6c7a8c; }
+.sf-bar {
+  height: 10px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #0b5ed7, #4ea8ff);
+  min-width: 6px;
+}
+
+/* ---------- passenger search ---------- */
+.sf-hero {
+  background: linear-gradient(135deg, #0a2540 0%, #0b5ed7 100%);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+.sf-search-card { border: 0; border-radius: 14px; }
+.sf-route-chip {
+  background: rgba(255, 255, 255, .14);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, .3);
+  border-radius: 999px;
+}
+.sf-route-chip:hover { background: #fff; color: var(--sf-navy); }
+.sf-flight-card {
+  border: 1px solid #e3e8ef;
+  border-radius: 12px;
+  transition: box-shadow .15s, border-color .15s;
+}
+.sf-flight-card:hover { box-shadow: 0 6px 18px rgba(16, 24, 40, .08); }
+.sf-flight-card.selected { border: 2px solid #198754; background: #f3fbf6; }
+.sf-line { height: 2px; background: #c9d4e2; margin: 4px 10px; position: relative; }
+.sf-sticky-bar {
+  position: sticky;
+  bottom: 0;
+  margin-top: 1rem;
+  background: #fff;
+  border: 1px solid #e3e8ef;
+  border-radius: 12px;
+  padding: .8rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 -4px 16px rgba(16, 24, 40, .06);
+  z-index: 5;
+}
+
+/* ---------- seat map ---------- */
+.sf-seatmap {
+  max-height: 360px;
+  overflow-y: auto;
+  padding: .5rem;
+  background: #f8fafc;
+  border-radius: 10px;
+}
+.sf-seat-row { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+.sf-row-no { width: 24px; font-size: .75rem; color: #8492a6; text-align: right; }
+.sf-aisle { width: 18px; }
+.sf-seat {
+  width: 34px;
+  height: 32px;
+  border-radius: 7px 7px 4px 4px;
+  border: 1px solid #c9d4e2;
+  background: #fff;
+  font-size: .72rem;
+  font-weight: 600;
+  color: #44546a;
+}
+.sf-seat.window { background: #e7f6ec; border-color: #9fd8b3; }
+.sf-seat.aisle { background: #e8f1ff; border-color: #a9c8f5; }
+.sf-seat.chosen { background: #0b5ed7; border-color: #0b5ed7; color: #fff; }
+.sf-seat.taken { background: #dfe3e8; border-color: #dfe3e8; color: #a0a8b3; cursor: not-allowed; }
+.sf-seat-legend { display: flex; flex-wrap: wrap; gap: 12px; color: #5b6b7f; }
+.sf-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  border: 1px solid #c9d4e2;
+  background: #fff;
+  margin-right: 4px;
+  vertical-align: -1px;
+}
+.sf-dot.window { background: #e7f6ec; border-color: #9fd8b3; }
+.sf-dot.aisle { background: #e8f1ff; border-color: #a9c8f5; }
+.sf-dot.chosen { background: #0b5ed7; border-color: #0b5ed7; }
+.sf-dot.taken { background: #dfe3e8; border-color: #dfe3e8; }
+
+/* ---------- bookings / tickets ---------- */
+.sf-journey-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .5rem;
+  padding: .7rem 0;
+  border-top: 1px dashed #dfe5ee;
+  margin-top: .7rem;
+}
+.sf-cancel-box { background: #fff5f5; border: 1px solid #f5c2c7; border-radius: 10px; padding: .75rem; }
+.sf-pay-card { position: sticky; top: 1rem; }
+.sf-ticket {
+  background: #fff;
+  border: 1px solid #dfe5ee;
+  border-radius: 14px;
+  overflow: hidden;
+}
+.sf-ticket-head {
+  background: linear-gradient(135deg, #0a2540, #0b5ed7);
+  color: #fff;
+  padding: 1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sf-ticket-journey { padding: 1rem 1.25rem; border-bottom: 2px dashed #dfe5ee; }
+.sf-ticket-foot {
+  padding: .8rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .5rem;
+  background: #f8fafc;
+}
+
+@media print {
+  body * { visibility: hidden; }
+  .print-area, .print-area * { visibility: visible; }
+  .print-area { position: absolute; left: 0; top: 0; width: 100%; }
+  .no-print { display: none !important; }
+}
+
+/* Notification bell dropdown */
+.sf-notify { position: absolute; right: 0; top: 42px; width: 340px; z-index: 1050; }
+.sf-notify-list { max-height: 360px; overflow-y: auto; }
+.sf-unread { background: #eef5ff; }
