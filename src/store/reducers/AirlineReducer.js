@@ -1,99 +1,102 @@
-// Step 1: Define the initial state for the Admin module.
+// Step 1: Define the initial state for the Airline module.
 const initialState = {
     stats: null,
-    airlineBookings: [],
-    airlines: [],
-    passengers: [],
-    passengerBookings: {},
+    profile: null,
     airports: [],
+    routes: [],
     flights: [],
+    instances: [],
+    passengers: [],
     bookings: [],
-    payments: [],
     refunds: [],
     complaints: []
 }
 
-// Step 2: Create the Admin Reducer.
-const AdminReducer = (state = initialState, action) => {
+// Step 2: Create the Airline Reducer.
+const AirlineReducer = (state = initialState, action) => {
 
     // Step 3: Check the action type and update the state accordingly.
     switch (action.type) {
 
-        // Update admin dashboard statistics and airline bookings.
-        case 'FETCH_ADMIN_STATS':
-            return {
-                ...state,
-                stats: action.payload.stats,
-                airlineBookings: action.payload.airlineBookings
-            }
+        // Store the dashboard statistics of the airline.
+        case 'FETCH_AIRLINE_STATS':
+            return { ...state, stats: action.payload }
 
-        // Store the fetched airline list.
-        case 'FETCH_AIRLINES':
-            return { ...state, airlines: action.payload }
+        // Store the profile of the airline.
+        case 'FETCH_AIRLINE_PROFILE':
+            return { ...state, profile: action.payload }
 
-        // Add a newly created airline to the existing airline list.
-        case 'ADD_AIRLINE':
-            return { ...state, airlines: [...state.airlines, action.payload] }
-
-        // Update the details of a particular airline.
-        case 'UPDATE_AIRLINE':
-            return {
-                ...state,
-                airlines: state.airlines.map(a => a.airlineId === action.payload.airlineId ? action.payload : a)
-            }
-
-        // Store the fetched passenger list.
-        case 'FETCH_PASSENGERS':
-            return { ...state, passengers: action.payload }
-
-        // Update the active/inactive status of a particular passenger.
-        case 'UPDATE_PASSENGER_STATUS':
-            return {
-                ...state,
-                passengers: state.passengers.map(p => p.passengerId === action.payload.passengerId
-                    ? { ...p, isActive: action.payload.active } : p)
-            }
-
-        // Store the bookings belonging to a particular passenger.
-        case 'FETCH_PASSENGER_BOOKINGS':
-            return {
-                ...state,
-                passengerBookings: { ...state.passengerBookings, [action.payload.passengerId]: action.payload.bookings }
-            }
-
-        // Store all airports in the Admin state.
-        case 'FETCH_AIRPORTS_ADMIN':
+        // Store all airports.
+        case 'FETCH_AIRPORTS_AIRLINE':
             return { ...state, airports: action.payload }
 
-        // Store all flights.
-        case 'FETCH_ALL_FLIGHTS':
+        // Store the fetched route list.
+        case 'FETCH_ROUTES':
+            return { ...state, routes: action.payload }
+
+        // Add a newly created route to the existing route list.
+        case 'ADD_ROUTE':
+            return { ...state, routes: [...state.routes, action.payload] }
+
+        // Update one particular route (for example active / inactive).
+        case 'UPDATE_ROUTE':
+            return {
+                ...state,
+                routes: state.routes.map(r => r.routeId === action.payload.routeId ? action.payload : r)
+            }
+
+        // Store the fetched flight list.
+        case 'FETCH_FLIGHTS':
             return { ...state, flights: action.payload }
 
-        // Store all bookings.
-        case 'FETCH_ALL_BOOKINGS':
+        // Add a newly created flight to the existing flight list.
+        case 'ADD_FLIGHT':
+            return { ...state, flights: [...state.flights, action.payload] }
+
+        // Update one particular flight.
+        case 'UPDATE_FLIGHT':
+            return {
+                ...state,
+                flights: state.flights.map(f => f.flightId === action.payload.flightId ? action.payload : f)
+            }
+
+        // Store the passengers of one flight instance.
+        case 'FETCH_FLIGHT_PASSENGERS':
+            return { ...state, passengers: action.payload }
+
+        // Store the dated flights (flight instances).
+        case 'FETCH_INSTANCES':
+            return { ...state, instances: action.payload }
+
+        // Update the status and delay of one flight instance.
+        case 'UPDATE_INSTANCE_STATUS':
+            return {
+                ...state,
+                instances: state.instances.map(i => i.instanceId === action.payload.instanceId
+                    ? { ...i, status: action.payload.status, delayMinutes: action.payload.delayMinutes } : i)
+            }
+
+        // Store the bookings of the airline.
+        case 'FETCH_AIRLINE_BOOKINGS':
             return { ...state, bookings: action.payload }
 
-        // Store all payment records.
-        case 'FETCH_ALL_PAYMENTS':
-            return { ...state, payments: action.payload }
-
-        // Store all refund records.
-        case 'FETCH_ALL_REFUNDS':
+        // Store the refund requests of the airline.
+        case 'FETCH_AIRLINE_REFUNDS':
             return { ...state, refunds: action.payload }
 
-        // Update one particular refund record.
-        case 'UPDATE_REFUND_ADMIN':
+        // Update one particular refund request (approve / reject).
+        case 'UPDATE_AIRLINE_REFUND':
             return {
                 ...state,
                 refunds: state.refunds.map(r => r.refundId === action.payload.refundId ? action.payload : r)
             }
 
-        // Store all complaints.
-        case 'FETCH_ALL_COMPLAINTS':
+        // Store the complaints of the airline.
+        case 'FETCH_AIRLINE_COMPLAINTS':
             return { ...state, complaints: action.payload }
 
-        // Update one particular complaint record.
-        case 'UPDATE_COMPLAINT_ADMIN':
+        // Update one particular complaint (after the airline responds).
+        case 'UPDATE_AIRLINE_COMPLAINT':
             return {
                 ...state,
                 complaints: state.complaints.map(c => c.complaintId === action.payload.complaintId ? action.payload : c)
@@ -106,4 +109,4 @@ const AdminReducer = (state = initialState, action) => {
 }
 
 // Step 4: Export the reducer so it can be registered in the Redux store.
-export default AdminReducer
+export default AirlineReducer
